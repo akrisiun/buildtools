@@ -1,2 +1,8 @@
+cd src\
+dotnet restore
+cd ..
+
 @call run.cmd build-managed %*
-@exit /b %ERRORLEVEL%
+
+@REM @exit /b %ERRORLEVEL%
+@PAUSE

@@ -9,5 +9,8 @@
   },
   "frameworks": {
     "netstandard1.5": {}
+  },
+  "runtimes": {
+    "win": {}
   }
 }

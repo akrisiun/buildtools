@@ -3,7 +3,8 @@ syntax: glob
 ### VisualStudio ###
 
 # Tool Runtime Dir
-/[Tt]ools/
+# /[Tt]ools/
+# build/
 
 # NuGet package restore lockfiles
 project.lock.json
@@ -22,7 +23,6 @@ project.lock.json
 [Rr]eleases/
 x64/
 x86/
-build/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -250,3 +250,6 @@ Temporary Items
 Session.vim
 .netrwhist
 *~
+*.zip
+*.nuspec
+*.nupkg.sha512
