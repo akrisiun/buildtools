@@ -43,8 +43,8 @@ namespace Microsoft.DotNet.VersionTools
         {
             var packages = new List<PackageIdentity>();
 
-            string rawLatestUrl = $"{rawBuildInfoBaseUrl}/Latest.txt";
-            string rawLatestPackagesUrl = $"{rawBuildInfoBaseUrl}/Latest_Packages.txt";
+            string rawLatestUrl = rawBuildInfoBaseUrl + "/Latest.txt";
+            string rawLatestPackagesUrl = rawBuildInfoBaseUrl + "/Latest_Packages.txt";
 
             using (Stream versionsStream = await client.GetStreamAsync(rawLatestPackagesUrl))
             using (StreamReader reader = new StreamReader(versionsStream))
