@@ -2,7 +2,8 @@ cd src\
 dotnet restore
 cd ..
 
-@call run.cmd build-managed %*
+@REM @call run.cmd build-managed %*
+msbuild BuildConsole.sln
 
 @REM @exit /b %ERRORLEVEL%
 @PAUSE

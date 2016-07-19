@@ -253,3 +253,4 @@ Session.vim
 *.zip
 *.nuspec
 *.nupkg.sha512
+Tools/dotnetcli/
