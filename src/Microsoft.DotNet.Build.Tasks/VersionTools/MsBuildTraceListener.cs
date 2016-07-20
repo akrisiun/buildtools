@@ -9,7 +9,9 @@ using System.Text;
 
 namespace Microsoft.DotNet.Build.Tasks.VersionTools
 {
-    public class MsBuildTraceListener : TraceListener
+    public class MsBuildTraceListener
+#if !NET46
+        : TraceListener
     {
         private TaskLoggingHelper _log;
         private TraceEventType _eventType;
@@ -64,6 +66,63 @@ namespace Microsoft.DotNet.Build.Tasks.VersionTools
                 WriteLine(string.Empty);
             }
         }
+#else
+    {
+        private TaskLoggingHelper _log;
+        private TraceEventType _eventType;
+        private StringBuilder _partialLine = new StringBuilder();
+
+        public MsBuildTraceListener(TaskLoggingHelper log, TraceEventType eventType)
+        {
+            _log = log;
+            _eventType = eventType;
+
+            Filter = new TraceEventTypeFilter
+            {
+                ShouldTraceType = eventType
+            };
+        }
+
+        public void Write(string message)
+        {
+            _partialLine.Append(message);
+        }
+
+        public void WriteLine(string message)
+        {
+            string fullMessage = _partialLine + message;
+            _partialLine.Clear();
+
+            switch (_eventType)
+            {
+                case TraceEventType.Error:
+                    _log.LogError(fullMessage);
+                    break;
+                case TraceEventType.Warning:
+                    _log.LogWarning(fullMessage);
+                    break;
+                case TraceEventType.Critical:
+                    _log.LogMessage(MessageImportance.High, fullMessage);
+                    break;
+                case TraceEventType.Information:
+                    _log.LogMessage(MessageImportance.Normal, fullMessage);
+                    break;
+                case TraceEventType.Verbose:
+                    _log.LogMessage(MessageImportance.Low, fullMessage);
+                    break;
+            }
+        }
+
+        public void Flush()
+        {
+            base.Flush();
+            if (_partialLine.Length > 0)
+            {
+                WriteLine(string.Empty);
+            }
+        }
+
+#endif
 
         private class TraceEventTypeFilter : TraceFilter
         {

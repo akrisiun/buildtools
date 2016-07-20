@@ -254,3 +254,7 @@ Session.vim
 *.nuspec
 *.nupkg.sha512
 Tools/dotnetcli/
+*.project.lock.json
+*..project.lock.json
+src/BuildConsole/BuildConsole.project.lock.json
+src/Microsoft.DotNet.Build.Tasks/Microsoft.DotNet.Build.Tasks.project.json

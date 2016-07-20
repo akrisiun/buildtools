@@ -131,9 +131,12 @@
 
   <Target Name="ValidatePackageVersions"
           Condition="'$(_BuildAgainstPackages)' != 'true' and '$(RestorePackages)'=='true' and '$(ValidatePackageVersions)'=='true' and Exists('$(ProjectJson)')">
-    <ValidateProjectDependencyVersions ProjectJsons="$(ProjectJson)"
+    
+    <!--<ValidateProjectDependencyVersions ProjectJsons="$(ProjectJson)"
                                        ProhibitFloatingDependencies="$(ProhibitFloatingDependencies)"
                                        ValidationPatterns="@(ValidationPattern)" />
+    -->
+    
   </Target>
 
   <Target Name="FilterTargetingPackResolvedNugetPackages" AfterTargets="ResolveNuGetPackages" >

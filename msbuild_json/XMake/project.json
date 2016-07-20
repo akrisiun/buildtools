@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "Microsoft.Tpl.Dataflow": "4.5.24",
+	"System.Threading.Tasks": "4.0.0"
+  },
+  "libraries" : {
+	 "type" : "project",
+	 "ProjectReference Include="..\Framework\Microsoft.Build.Framework.csproj"
+  },
+  "frameworks": {
+    "net46": {
+
+ <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Configuration" />
+
+	}
+  },
+  "runtimes": {
+    "win": {}
+  }
+}

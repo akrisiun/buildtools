@@ -1,4 +1,3 @@
-using Microsoft.DotNet.Build.Tasks.VersionTools;
 using System;
 using System.Diagnostics;
 
@@ -15,13 +14,27 @@ namespace coreApp
                 Debugger.Launch();
             Debugger.Break();
 
-
-            Type t = System.Type.GetType("Microsoft.DotNet.Build.Tasks.VersionTools.UpdateDependencies");
-            var task = new UpdateDependencies();
-            task.Execute();
+            try
+            {
+                Tests.Test1();
+            } catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.StackTrace);
+                    }
 
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
         }
     }
+
+    public static class Tests
+    {
+        public static void Test1()
+        {
+            Type t = System.Type.GetType("Microsoft.DotNet.Build.Tasks.VersionTools.UpdateDependencies");
+            var task = new Microsoft.DotNet.Build.Tasks.VersionTools.UpdateDependencies();
+            task.Execute();
+        }
+    }
+
 }

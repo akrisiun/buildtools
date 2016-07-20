@@ -1,4 +1,10 @@
-# .NET Core Build Tools
+# submodules
+
+```
+git submodule add https://github.com/akrisiun/msbuild.git msbuild
+```
+
+### .NET Core Build Tools
 
 [![Build status](http://dotnet-ci.cloudapp.net/job/dotnet_buildtools/job/master/job/innerloop/badge/icon)](http://dotnet-ci.cloudapp.net/job/dotnet_buildtools/job/master/job/innerloop/)
 

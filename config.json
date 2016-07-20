@@ -3,7 +3,7 @@
     "OSGroup": {
       "description": "OS Group for result binaries.",
       "valueType": "property",
-      "values": ["AnyOS", "Windows_NT", "Linux", "OSX", "FreeBSD", "NetBSD"],
+      "values": ["AnyOS", "Windows_NT"],
       "defaultValue": "AnyOS"
      },
     "RestoreDuringBuild": {
@@ -188,8 +188,7 @@
     },
     "terminal": {
       "run": {
-        "windows": "cmd",
-        "unix": "sh"
+        "windows": "cmd"
       },
       "valueTypes": {}
     }
