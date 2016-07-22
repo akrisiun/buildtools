@@ -1,3 +1,6 @@
 [submodule "msbuild"]
 	path = msbuild
 	url = https://github.com/akrisiun/msbuild.git
+[submodule "cli"]
+	path = cli
+	url = https://github.com/akrisiun/cli.git
